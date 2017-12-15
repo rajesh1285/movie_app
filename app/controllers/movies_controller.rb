@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   
 
   def index
-  @movies = Movie.all.order('created_at DESC')
+  @movies = Movie.all
   end
 
   def new
@@ -28,12 +28,25 @@ class MoviesController < ApplicationController
   end
   
 
+  
   def update
+    @movie = Movie.find(params[:id])
+ 
+   if @movie.update(movie_params)
+     redirect_to @movie
+    else
+      render 'edit'
+    end
   end
   
-
+  
   def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+   
+    redirect_to movies_path
   end
+  
 
   private 
     def movie_params
