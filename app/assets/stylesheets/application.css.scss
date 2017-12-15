@@ -1,0 +1,101 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+img.img-responsive {
+    height: 350px;
+}
+
+
+
+#myFooter {
+    background-color: black;
+    color: white;
+    padding-top: 30px;
+}
+
+
+.footer-copyright {
+    margin: 10px;
+    color: #ccc;
+    text-align: center;
+}
+a.heading {
+    color: gold;
+    padding: 30px;
+}
+
+
+.page-header {
+    background: #333;
+    height: 70px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+
+a {
+    color: gold;
+    /* text-align: center; */
+}
+
+element.style {
+    padding-bottom: 22px;
+    padding-right: 60px;
+}
+
+img {
+    width: 400px;
+    height: 500px;
+}
+
+
+
+.col-md-4 {
+    background: darkgray;
+}
+
+
+.panel.panel-default {
+    background: darkgray;
+}
+
+
+.container {
+    background: blanchedalmond;
+}
+
+.container {
+    padding: initial;
+}
+
+.container {
+    widith: 1155px;
+}
+
+
+.container-fluid {
+    color: burlywood;
+}
+footer#myFooter {
+    background: bisque;
+}
+
+p {
+    color: black;
+}
+
+a {
+    color: #5a00ff;
+    /* text-align: center; */
+}
+textarea#review_body {
+    height: 96px;
+    width: 380px;
+}
+img.rating-show-image {
+    height: 155px;
+}
+
+h1 {
+    text-align: center;
+}

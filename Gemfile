@@ -6,6 +6,14 @@ git_source(:github) do |repo_name|
 end
 
 
+
+
+gem 'carrierwave', '~> 1.0'
+gem "font-awesome-rails"
+gem 'devise'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use mysql as the database for Active Record
@@ -52,3 +60,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+

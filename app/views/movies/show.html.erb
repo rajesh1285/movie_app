@@ -1,0 +1,118 @@
+<div class="container">
+
+			  <h1>New movies</h1>
+			       <%= render 'partials/navbar'%>
+				 <div class="col-md-6">
+			
+				    <img src="<%= @movie.image_url%>">
+
+	             </div>
+
+<br>
+                   <br>
+                   <br>
+	           <div class="col-md-4">
+
+					   <h3>
+					  <%= @movie.title %>
+					  </h3>
+				 
+					<h3>
+					  <strong>Plot:</strong>
+					  <%= @movie.plot %>
+					</h3>
+					<h3>
+					  <strong>cast:</strong>
+					  <%= @movie.cast %>
+					</h3>
+					<h3>
+					  <strong>gener:</strong>
+					  <%= @movie.genr %>
+					</h3>
+					<h3>
+					  <strong>Rating:</strong>
+					  <%= @movie.rating %>
+					</h3>
+			</div>
+			     <div class="col-md-4">
+			     <img class="rating-show-image" src="/assets/Emoji_u1f320.svg.png" style="width: 160px;" alt="Rating">		
+
+					<div class="col-md-12">
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" style="float: right;">
+								  website
+								</button>
+				    </div>
+
+				</div>
+               
+		   
+        </div>
+
+        <br>
+        <br>
+        
+	        <div class="container">
+	        	
+              <div class="col-md-6">
+              	<div class="container" style="width :1155px">
+              		<div class="col-md-4">
+              	
+              		<div class="row back color" >
+	              	<%= render @movie.reviews %>
+	              	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" style="float: right;">
+								morereviews
+								</button>
+	              </div>
+	          </div>
+	          </div>
+	           
+	       </div>
+
+ <div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<h4>Top 10 list of movies</h4>
+						</h3>
+					</div>
+					<div class="panel-body table-responsive">
+					  <table class="table">
+					    <thead>
+					      <tr>
+					        <th>
+					          #
+					        </th>
+					        <th>
+					          Name
+					        </th>
+					        <th>
+					          Genre
+					        </th>
+					      </tr>
+					    </thead>
+							
+							</table>
+						</div>
+				</div>
+         </div>
+     </div>
+
+	           <div class="col-md-12">
+	           	<div class="col-md-6">
+	             	<%= render 'reviews/form'%>
+	             </div>
+	           </div>
+	   
+	        </div>
+        <br>
+        <br>
+        <br>
+
+
+               <div class="container">
+                   <%= render 'partials/footer' %>
+                </div>
+   
+		
+
+
