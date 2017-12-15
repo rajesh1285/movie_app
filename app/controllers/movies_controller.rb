@@ -20,6 +20,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @genre_same= Movie.where(:genr=> @movie.genr)
   end
   
 

@@ -90,7 +90,20 @@
 					        </th>
 					      </tr>
 					    </thead>
-							
+					    <% @genre_same.each do |genre|%>
+
+					    <tbody>
+					    	<tr>
+					    		<td><%=genre.id%></td>
+					    	
+					    	
+					    		<td><%=genre.title%></td>
+					    	
+					    	
+					    		<td><%=genre.genr%></td>
+					    	</tr>
+					    </tbody>
+						<%end%>							
 							</table>
 						</div>
 				</div>
