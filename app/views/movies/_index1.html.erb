@@ -1,0 +1,50 @@
+    
+
+<div id="index_page">
+     <div class="container">
+
+        <%=render  "partials/header"%>
+        <%= render "partials/navbar"%>
+        <%=render  "home/index"%>
+             <h1>Top viewed movies</h1>
+        <div class="row">
+
+             <% @movies.each do |movie|%>
+             
+               <div class="col-md-3 col-sm-3 ">
+                      <% if movie.title.blank?  %>
+                        <% move_title = "unknown Album" %>
+                     <% else %>
+                        <% move_title = movie.title %>
+                    <% end %>
+                        <h3><%= move_title %></h3>
+                        <% if movie.image.blank?  %>
+                        <% move_image = "blankimage" %>
+                        <% else %>
+                        <% move_image = movie.image %>
+                        <% end %>
+                
+                    <%= link_to (image_tag move_image),movie_path(movie), class: "img-responsive" %>
+                   <div class="from-group">
+                     <%= link_to 'Readmore', movie_path(movie),class: "btn btn-primary" %>
+                       </div>
+   
+                </div>
+              
+             <%end%>
+               
+         </div> 
+         <div style="text-align: right" > 
+            <%=link_to "Browse more>>" , movies_detail_movies_path(view: "byview") %>
+                
+            </div>  
+         <%=render "toprated" %>
+         <div style="text-align: right" >
+          <%=link_to "Browse more>>" , movies_detail_movies_path(view: "byrating") %>
+         </div>
+         
+         <%=render "partials/footer"%>
+    </div>
+</div>
+
+   

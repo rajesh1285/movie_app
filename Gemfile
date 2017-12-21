@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
-
-
+gem 'activeadmin', '~> 1.1'
+gem 'searchkick'
 gem 'carrierwave', '~> 1.0'
 gem "font-awesome-rails"
 gem 'devise'

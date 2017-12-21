@@ -1,0 +1,49 @@
+<div class="container">
+       <%=render  "partials/header"%>
+        <%= render "partials/navbar"%>
+<h1>movies details </h1>
+  <ul class="nav nav-tabs">
+	  <li class="<%= check_view(@abc) %>"><a data-toggle="tab" href="#home">Byviews</a></li>
+	  <li class= "<%= check_rating(@abc)%>"><a data-toggle="tab" href="#menu1">Byrating</a></li>
+  
+  </ul>
+
+    <div class="tab-content">
+    <div id="home" class="tab-pane fade <%= check_view(@abc)%>">
+       <h1>Top viewed movies</h1>
+       <div class="row">
+
+           <% @movie.each do |t|%>
+           <div class="col-md-3 col-sm-3 ">
+                  <h3><%= t.title%></h3>
+           
+           
+            <%= link_to (image_tag t.image_url),movie_path(t), class: "img-responsive" %>
+      
+            
+
+           </div>
+          <%end%>
+          </div>
+        </div>          
+         
+         
+ 
+            <div id="menu1" class="tab-pane fade <%= check_rating(@abc)%>">
+
+              <h3>Top rated</h3>
+              <div class="row">
+              <%@rating.each do |movie|%>
+                 <div class="col-md-3 col-sm-3 ">
+                            <h3><%= movie.title%></h3>
+              
+              <%= link_to (image_tag movie.image_url),movie_path(movie), class: "img-responsive" %>
+              
+            </div>
+           <%end%>
+          </div>
+
+          </div>
+     </div>
+       <%=render "partials/footer"%>
+</div>

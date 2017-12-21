@@ -1,0 +1,36 @@
+ 
+
+<div class="container" style="width: 100%;">
+     <h1>Top rated</h1>
+
+        <div class="row">
+
+             <% @ratings.each do |movie|%>
+             
+               <div class="col-md-3 col-sm-3">
+                      <% if movie.title.blank?  %>
+                        <% move_title = "unknown Album" %>
+                     <% else %>
+                        <% move_title = movie.title %>
+                    <% end %>
+                        <h3><%= move_title %></h3>
+                        <% if movie.image.blank?  %>
+                        <% move_image = "blankimage" %>
+                        <% else %>
+                        <% move_image = movie.image %>
+                        <% end %>
+                
+                    <%= link_to (image_tag move_image),movie_path(movie), class: "img-responsive" %>
+                    
+                    
+                     <div class="from-group">
+                     <%= link_to 'Readmore', movie_path(movie),class: "btn btn-primary" %>
+                       </div>
+   
+            
+                </div>
+              
+             <%end%>
+               
+         </div> 
+</div>         
