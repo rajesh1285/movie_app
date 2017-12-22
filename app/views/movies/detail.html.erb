@@ -15,12 +15,21 @@
 
            <% @movie.each do |t|%>
            <div class="col-md-3 col-sm-3 ">
-                  <h3><%= t.title%></h3>
-           
+               <% if t.title.blank?  %>
+                        <% move_title = "unknown Album" %>
+                        <% else %>
+                        <% move_title = t.title %>
+                        <% end %>
+                        
+              
+              
+
+                  <h3><%= move_title%></h3>
+          
            
             <%= link_to (image_tag t.image_url),movie_path(t), class: "img-responsive" %>
       
-            
+             
 
            </div>
           <%end%>
@@ -35,7 +44,17 @@
               <div class="row">
               <%@rating.each do |movie|%>
                  <div class="col-md-3 col-sm-3 ">
-                            <h3><%= movie.title%></h3>
+                  <% if movie.title.blank?  %>
+                        <% move_title = "unknown Album" %>
+                        <% else %>
+                        <% move_title = movie.title %>
+                        <% end %>
+                        
+              
+              
+
+                  <h3><%= move_title%></h3>
+                            
               
               <%= link_to (image_tag movie.image_url),movie_path(movie), class: "img-responsive" %>
               
@@ -43,7 +62,7 @@
            <%end%>
           </div>
 
-          </div>
+       </div>
      </div>
        <%=render "partials/footer"%>
 </div>

@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'draper'
 gem 'activeadmin', '~> 1.1'
 gem 'searchkick'
 gem 'carrierwave', '~> 1.0'

@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
 
   def search
    if params[:search].present?
-    @movies = Movie.search(params[:search])
+     @movies = Movie.search(params[:search])
      else
       @movies = Movie.all
    end
@@ -13,10 +13,8 @@ class MoviesController < ApplicationController
    
 
   def index
-
    @movies = Movie.all.order('count DESC')
    @ratings = Movie.all.order('rating DESC')
-
   end
   
   def new
@@ -33,7 +31,6 @@ class MoviesController < ApplicationController
 
 
   def show
-   
     @movie = Movie.find(params[:id])
     View.create(movie_id: @movie.id)
     @genre_same= Movie.where(:genr=> @movie.genr)
@@ -43,7 +40,7 @@ class MoviesController < ApplicationController
 
   def detail
     @abc = params[:view]
-    @movie= Movie.order('count DESC')
+    @movie = Movie.order('count DESC')
     @rating = Movie.order('rating DESC')
   end
   
@@ -52,7 +49,7 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find(params[:id])
  
-   if @movie.update(movie_params)
+    if @movie.update(movie_params)
      redirect_to @movie
     else
       render 'edit'
@@ -69,12 +66,9 @@ class MoviesController < ApplicationController
   
 
   private 
-    
-
+   
     def movie_params
-       params.require(:movie).permit(:title,:plot,:genr,:rating,:cast,:image)
-    end
-     
-    
+       params.require(:movie).permit(:title,:plot,:genr,:rating,:cast,:image,:year)
+    end   
 
 end

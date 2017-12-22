@@ -9,14 +9,14 @@
              <h1>Top viewed movies</h1>
         <div class="row">
 
-             <% @movies.each do |movie|%>
+            <% @movies.each do |movie| %>
              
-               <div class="col-md-3 col-sm-3 ">
-                      <% if movie.title.blank?  %>
+                <div class="col-md-3 col-sm-3 ">
+                        <% if movie.title.blank?  %>
                         <% move_title = "unknown Album" %>
-                     <% else %>
+                        <% else %>
                         <% move_title = movie.title %>
-                    <% end %>
+                        <% end %>
                         <h3><%= move_title %></h3>
                         <% if movie.image.blank?  %>
                         <% move_image = "blankimage" %>
@@ -25,13 +25,13 @@
                         <% end %>
                 
                     <%= link_to (image_tag move_image),movie_path(movie), class: "img-responsive" %>
-                   <div class="from-group">
+                     <div class="from-group">
                      <%= link_to 'Readmore', movie_path(movie),class: "btn btn-primary" %>
                        </div>
-   
                 </div>
-              
-             <%end%>
+                  <%end%>
+               
+            
                
          </div> 
          <div style="text-align: right" > 

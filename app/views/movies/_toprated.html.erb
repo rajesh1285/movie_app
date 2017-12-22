@@ -9,23 +9,23 @@
              
                <div class="col-md-3 col-sm-3">
                       <% if movie.title.blank?  %>
-                        <% move_title = "unknown Album" %>
+                        <% e_title = "unknown Album" %>
                      <% else %>
-                        <% move_title = movie.title %>
+                        <% e_title = movie.title %>
                     <% end %>
-                        <h3><%= move_title %></h3>
+                        <h3><%= e_title %></h3>
                         <% if movie.image.blank?  %>
-                        <% move_image = "blankimage" %>
+                        <% e_image = "blankimage" %>
                         <% else %>
-                        <% move_image = movie.image %>
+                        <% e_image = movie.image %>
                         <% end %>
                 
-                    <%= link_to (image_tag move_image),movie_path(movie), class: "img-responsive" %>
+                    <%= link_to (image_tag e_image),movie_path(movie), class: "img-responsive" %>
                     
                     
                      <div class="from-group">
-                     <%= link_to 'Readmore', movie_path(movie),class: "btn btn-primary" %>
-                       </div>
+                         <%= link_to 'Readmore', movie_path(movie),class: "btn btn-primary" %>
+                     </div>
    
             
                 </div>
