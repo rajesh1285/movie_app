@@ -6,11 +6,15 @@ class ReviewsController < ApplicationController
     @review = @movie.reviews.create(review_params)
     
      @review.user = current_user
-    if @review.save
+     if @review.save
+      ReviewMailer.thankyou_email(@review,@review.user,@movie.title).deliver_now
 
     redirect_to movie_path(@movie)
+    else
+    redirect_to movie_path(@movie)
+  end
 
-   end
+   
   end
  
   def destroy
