@@ -109,7 +109,7 @@
 								</h3>
 							</div>
 						<div class="panel-body table-responsive">
-							  <table class="table">
+							  <table class="table ">
 							    <thead>
 							      <tr>
 							        <th>
@@ -125,16 +125,18 @@
 							    </thead>
 							    <% @genre_same.each do |genre|%>
 
-							    <tbody>
+							    <tbody  data-spy="scroll"> 
 							    	<tr>
 							    		<td><%=genre.id%></td>
 							    	
 							    	
-							    		<td><%=genre.title%></td>
+							    	
+							    		<td><%=link_to genre.title, movie_path(genre) %></td>
 							    	
 							    	
 							    		<td><%=genre.genr%></td>
 							    	</tr>
+
 							    </tbody>
 								<%end%>							
 									</table>

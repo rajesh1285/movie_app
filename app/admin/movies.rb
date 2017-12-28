@@ -29,7 +29,7 @@ ActiveAdmin.register Movie do
 	  filter :title
 	  filter :genre
 
-     decorate_with MovieDecorator
+     
 
 
     action_item :new_movie,only: :index do

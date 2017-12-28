@@ -27,22 +27,21 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.app_domain = 'facebook.com'
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
-    
-config.action_mailer.delivery_method = :smtp
- config.action_mailer.delivery_method = :smtp
       config.action_mailer.smtp_settings = {
-      :user_name => 'rajesh1285',
-      :password => 'Rajesh@143',
-      :domain => 'localhost',
-      :address => 'smtp.sendgrid.net',
-      :port => 587,
-      :authentication => :plain,
-      :enable_starttls_auto => true
-     }
+      # enable_starttls_auto: true,
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: 'gmail.com',
+      authentication: 'plain',
+      user_name: 'rajeshnuthalapati499@gmail.com',
+      password: '12851A0440'
+    }
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.

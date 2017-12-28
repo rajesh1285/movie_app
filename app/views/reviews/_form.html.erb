@@ -1,7 +1,7 @@
 <%= form_for([@movie, @movie.reviews.build]) do |f| %>
   
   <div>
-    <h1><%= f.label :Review %>(<%=Review.count%>)</h1><br>
+    <h1><%= f.label :Review %>(<%=@movie.reviews.count%>)</h1><br>
     <i class="fa fa-user" aria-hidden="true"></i>
     <%= f.text_area :body %>
   </div>

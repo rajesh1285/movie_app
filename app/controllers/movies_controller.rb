@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
    before_action :authenticate_admin_user!,only: [:create]
-  before_action :authenticate_user!, :except => [:index,:show]
+   before_action :authenticate_user!, :except => [:index,:show]
+  
+
   def index
     if params[:search]
      @movies = Movie.search(params[:search])
@@ -8,8 +10,8 @@ class MoviesController < ApplicationController
 
      else
       @movies =Movie.all
-      @movies = Movie.all.order('count DESC')
-      @ratings = Movie.all.order('rating DESC')
+      @movies = Movie.all.order('count DESC').limit(4)
+      @ratings = Movie.all.order('rating DESC').limit(4)
    end
    
   end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
  match '/admin/movies' => 'movies#create', via: :post
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users , :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   #root 'home#index'
   resources :home
   resources :movies do
