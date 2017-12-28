@@ -12,21 +12,34 @@ ActiveAdmin.register Movie do
 #   permitted
 # end
 
-     permit_params :title,:image,:genre,:plot,:rating,:web,:year,:cast,:view
+      permit_params :title,:image,:genre,:plot,:rating,:web,:year,:cast,:view
+      decorate_with MovieDecorator
+
+	  index do
+	    selectable_column
+	    id_column
+	    column :title
+	    column :image
+	    column :genre
+	    column :plot
+	    column :rating
+	    actions
+	  end
+
+	  filter :title
+	  filter :genre
+
      decorate_with MovieDecorator
 
-  index do
-    selectable_column
-    id_column
-    column :title
-    column :image
-    column :genre
-    column :plot
-    column :rating
-    column :year
-    actions
-  end
 
-
+    action_item :new_movie,only: :index do
+         link_to "Automatically Movie Upload", "http://192.168.3.3:3000/admin/movies/new?view=automatic"
+         end
+      
+      form :html => { :enctype => "multipart/form-data" } do |f|
+         f.inputs do
+       render "movies/form",    {view: params[:view]}
+     end
+   end
 
 end

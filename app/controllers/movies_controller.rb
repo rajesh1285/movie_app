@@ -1,19 +1,17 @@
 class MoviesController < ApplicationController
-  
+   before_action :authenticate_admin_user!,only: [:create]
   before_action :authenticate_user!, :except => [:index,:show]
-
-  def search
-   if params[:search].present?
-     @movies = Movie.search(params[:search])
-     else
-      @movies = Movie.all
-   end
-  end
-  
-
   def index
-   @movies = Movie.all.order('count DESC')
-   @ratings = Movie.all.order('rating DESC')
+    if params[:search]
+     @movies = Movie.search(params[:search])
+     @ratings = Movie.search(params[:search])
+
+     else
+      @movies =Movie.all
+      @movies = Movie.all.order('count DESC')
+      @ratings = Movie.all.order('rating DESC')
+   end
+   
   end
   
   def new
@@ -21,17 +19,36 @@ class MoviesController < ApplicationController
   end
 
 
-  def create
-    @movie = Movie.new(movie_params)
-   
-   if @movie.save
-    
-  
-    redirect_to @movie
-  else
-     render 'new'
+ def create
+
+    if params[:view] == "automatic"
+
+      @mv = OtherServieceCall.new.api_call(params[:movie][:title])
+      if @mv == true
+        redirect_to "http://192.168.3.3:3000/admin/movies",notice: "movie Successfully Saved"
+      else
+        redirect_to new_admin_movie_path(view: params[:view]),alert: "Movie Not Found Please verify it."
+      end
+    else
+      @movie =  Movie.new(movie_params)
+      if @movie.save
+        redirect_to "http://192.168.3.3:3000/admin/movies",notice: "movie Successfully Saved"
+      else
+        redirect_to new_admin_movie_path
+      end
+    end
   end
-end
+
+
+  # def create
+  #   @movie = Movie.new(movie_params)
+   
+  #  if @movie.save
+  #   redirect_to @movie
+  #  else
+  #    render 'new'
+  #  end
+  # end
 
 
   def show
@@ -72,7 +89,7 @@ end
   private 
    
     def movie_params
-       params.require(:movie).permit(:title,:plot,:genr,:rating,:cast,:image,:year)
+       params.require(:movie).permit(:title,:plot,:genr,:rating,:cast,:image,:year,:website)
     end   
 
 end

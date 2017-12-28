@@ -3,6 +3,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reviews
+ 
   after_create :send_admin_mail
 
 
@@ -13,4 +14,4 @@ class User < ApplicationRecord
   end
 
 
-end
+end	

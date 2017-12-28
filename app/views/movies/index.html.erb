@@ -1,1 +1,10 @@
-<%=render "index1"%>
+
+ 
+
+
+<% if @movies.present? %>
+  <%= render "index1" %>  
+<% else %>
+  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+<% end %>
+

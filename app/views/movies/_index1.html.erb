@@ -8,7 +8,6 @@
         <%=render  "home/index"%>
              <h1>Top viewed movies</h1>
         <div class="row">
-
             <% @movies.each do |movie| %>
              
                 <div class="col-md-3 col-sm-3 ">
@@ -38,7 +37,7 @@
             <%=link_to "Browse more>>" , movies_detail_movies_path(view: "byview") %>
                 
             </div>  
-         <%=render "toprated" %>
+         <%=render "toprated"%>
          <div style="text-align: right" >
           <%=link_to "Browse more>>" , movies_detail_movies_path(view: "byrating") %>
          </div>
