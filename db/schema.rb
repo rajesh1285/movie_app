@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20171228140627) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "movie_id"
+    t.integer "views_count"
     t.index ["movie_id"], name: "index_views_on_movie_id"
   end
 
