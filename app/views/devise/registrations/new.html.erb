@@ -15,12 +15,12 @@
 
        
       
-          <div class="col-md-6">
-            <% if image_tag "user" %>
-            <%= image_tag "user"  %>
-              <%else%>
-            <img src="" id="profile-img-tag" >
-            <%end%>
+          <div class="col-md-6" >
+             <div class="col-md-6 ">
+
+            <%= image_tag "user" ,id: "profile-img-tag" ,class: "img-responsive img-thumbnail img-rounded"%>
+            
+            </div>
           
 
                </div>
@@ -67,6 +67,7 @@
 
 <script type="text/javascript">
     function readURL(input) {
+     
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             
@@ -76,7 +77,12 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-    $("#profile-img").change(function(){
+    $(document).ready(function(){
+
+      $("#profile-img").change(function(){
+
         readURL(this);
+    });  
     });
+   
 </script>
