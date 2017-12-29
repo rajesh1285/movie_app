@@ -16,8 +16,12 @@
        
       
           <div class="col-md-6">
-      
-            <img src="" id="profile-img-tag">
+            <% if image_tag "user" %>
+            <%= image_tag "user"  %>
+              <%else%>
+            <img src="" id="profile-img-tag" >
+            <%end%>
+          
 
                </div>
 
