@@ -1,6 +1,6 @@
 
 
-<%= form_for @movie , html: { multipart: true } do |form| %>
+<%= form_for @movie , url: movies_path,  html: { multipart: true } do |form| %>
 
   
   <div class="form-group">
@@ -10,7 +10,7 @@
     
   </div>
  
-  <% if view == "automatic" %>
+  <% if view = "automatic" %>
   <%= hidden_field_tag 'view', view %>
   <%else%>
   <%= hidden_field_tag 'view', view %>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-top: 0px;">
 
 			  <h1>New movies</h1>
 			       <%= render 'partials/navbar'%>
@@ -8,10 +8,8 @@
 
 	             </div>
 
-                   <br>
-                   <br>
-                   <br>
-	             <div class="col-md-4">
+                  
+	             <div class="col-md-3">
 
 					   <h3>
 					  <%= @movie.title %>
@@ -39,18 +37,17 @@
 					  <%= @movie.rating %>
 					</h3>
 			</div>
-			     <div class="col-md-2">
+			     <div class="col-md-3">
 			     <img class="rating-show-image" src="/assets/Emoji_u1f320.svg.png" style="width: 160px;" alt="Rating"<span><h3>rating:<%= @movie.rating %></h3></span>		
 
-					<div class="col-md-12">
-								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="<%@movie.website%> style="float: right;">
-								  website
-								</button>
-				    </div>
 
-				</div>
-               
-		   
+                <div class="col-md-12">
+				    <div>
+				        <a href="<%= @movie.website%>" class="btn btn-primary web-show" style="float: right;">Website</a>
+				    </div>
+				 </div>
+            </div>
+
         </div>
 
         <br>
@@ -64,7 +61,7 @@
 	              	
 		              		<div class="row back color" >
 
-			              	<%= render @movie.reviews.limit(4) %>
+			              	 <%= render @movie.reviews.limit(4) %>
 			              		
 								  
 								  <!-- Trigger the modal with a button -->
@@ -90,12 +87,8 @@
 								      
 								    </div>
 								  </div>
-								  
-										
-
-								
-
-			              	</div>
+							 
+			              	    </div>
 		          		</div>
 		          	</div>
 	           
