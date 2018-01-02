@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
 
   def send_admin_mail
+  
   UserMailer.welcome_email(self).deliver_now
   
   end
