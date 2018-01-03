@@ -26,14 +26,14 @@ class MoviesController < ApplicationController
 
       @mv = OtherServieceCall.new.api_call(params[:movie][:title])
       if @mv = true
-        redirect_to "http://192.168.3.3:3000/admin/movies",notice: "movie Successfully Saved"
+        redirect_to "#{Rails.application.secrets.url}/admin/movies",notice: "movie Successfully Saved"
       else
         redirect_to new_admin_movie_path(view: params[:view]),alert: "Movie Not Found Please verify it."
       end
     else
       @movie =  Movie.new(movie_params)
       if @movie.save
-        redirect_to "http://192.168.3.3:3000/admin/movies",notice: "movie Successfully Saved"
+        redirect_to "#{Rails.application.secrets.url}/admin/movies",notice: "movie Successfully Saved"
       else
         redirect_to new_admin_movie_path
       end
