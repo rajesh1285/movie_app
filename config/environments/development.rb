@@ -28,6 +28,8 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
+  
+  config.read_encrypted_secrets = true
   config.action_mailer.raise_delivery_errors = true
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
@@ -37,8 +39,8 @@ Rails.application.configure do
       port: 587,
       domain: 'gmail.com',
       authentication: 'plain',
-      user_name: 'rajeshnuthalapati499@gmail.com',
-      password: '12851A0440'
+      user_name: Rails.application.secrets.email,
+      password:  Rails.application.secrets.password
     }
   config.action_mailer.perform_caching = false
 
