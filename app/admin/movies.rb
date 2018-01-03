@@ -20,7 +20,7 @@ ActiveAdmin.register Movie do
 	    id_column
 	    column :title
 	    column :image
-	    column :genre
+	    column :genr
 	    column :plot
 	    column :rating
 	    actions
