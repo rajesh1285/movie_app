@@ -11,13 +11,7 @@ module MovieApp
   class Application < Rails::Application
     
    # Initialize configuration defaults for originally generated Rails version.
-      config.to_prepare do
-    Devise::SessionsController.layout "devise"
-    Devise::RegistrationsController.layout "devise"
-    Devise::ConfirmationsController.layout "devise"
-    Devise::UnlocksController.layout "devise"
-    Devise::PasswordsController.layout "devise"
-    end
+      
     
     config.load_defaults 5.1
     
