@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dppzwvamc
+  api_key: '519118522534982'
+  api_secret: e9eCzORo0VusLa06eRxEmT05A7I
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dppzwvamc
+  api_key: '519118522534982'
+  api_secret: e9eCzORo0VusLa06eRxEmT05A7I
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dppzwvamc
+  api_key: '519118522534982'
+  api_secret: e9eCzORo0VusLa06eRxEmT05A7I
+  enhance_image_tag: true
+  static_image_support: false
