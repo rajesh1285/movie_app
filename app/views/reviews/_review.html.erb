@@ -5,18 +5,7 @@
 		              	
   <h3><span class="glyphicon glyphicon-user"></span><strong><%= review.user.name %>:</strong></h3>
   <h4 style="text-align: center;"><span><%= review.body %></h4>
-										<div class="btn-group">
-								          <%= link_to like_movie_path, method: :put, class: "btn btn-primary btn-sm" do %>
-								        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-								        Like	
-								        <%= @movie.get_likes.size %>
-								      <% end %>
-								      <%= link_to dislike_movie_path, method: :put, class: "btn btn-danger btn-sm" do %>
-								        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-								       Dislike
-								        <%= @movie.get_dislikes.size %>
-								      <% end %>
-									        </div>
-									        <br>
-									        <br>
+	
+  
+
 </p>

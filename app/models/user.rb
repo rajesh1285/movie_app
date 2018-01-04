@@ -1,9 +1,11 @@
 class User < ApplicationRecord
+
+   acts_as_voter
    mount_uploader :image, ImageUploader
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:confirmable	,:lockable,:timeoutable
    has_many :reviews,dependent: :destroy
-   
+   has_many :movies,dependent: :destroy
    validates_presence_of :name
 
 

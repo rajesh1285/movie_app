@@ -3,6 +3,7 @@
 			  <h1>New movies</h1>
 
 			       <%= render 'partials/navbar'%>
+			       <%= render 'partials/notification'%>
 			       <div class="row">
 				 <div class="col-md-6">
 			
@@ -94,10 +95,6 @@
         	</div>
 
 
-      
-        
-	    
-	        	
               	<div class="col-md-12 reviews">
 	              	
 	              		
@@ -106,7 +103,7 @@
 		              		<div class="row back-color">
 		              		
 
-			              	   <%= render @movie.reviews.limit(4) %>
+			              	   <%= render @movie.reviews.limit(3) %>
 			              		
 								  
 								  <!-- Trigger the modal with a button -->
@@ -173,3 +170,6 @@
 		
 
 
+            
+			    
+			

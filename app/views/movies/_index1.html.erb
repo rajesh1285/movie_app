@@ -25,8 +25,21 @@
                         <% end %>
                 
                     <%= link_to (image_tag move_image),movie_path(movie), class: "img-responsive" %>
+                    <br>
                      <div class="from-group">
                      <%= link_to 'Readmore', movie_path(movie),class: "btn btn-primary" %>
+                     <div class="btn-group">
+                      <%= link_to like_movie_path(movie), method: :put, class: "btn btn-primary btn-sm" do %>
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    Like    
+                    <%= movie.get_likes.size %>
+                  <% end %>
+                  <%= link_to dislike_movie_path(movie), method: :put, class: "btn btn-danger btn-sm" do %>
+                    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                   Dislike
+                    <%= movie.get_dislikes.size %>
+                  <% end %>
+                  </div>
                        </div>
                 </div>
                   <%end%>

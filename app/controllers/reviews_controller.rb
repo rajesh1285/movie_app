@@ -19,10 +19,14 @@ class ReviewsController < ApplicationController
  
   def destroy
     @movie = Movie.find(params[:movie_id])
-    @review = @movie.comments.find(params[:id])
+    @review = @movie.reviews.find(params[:id])
     @review.destroy
     redirect_to movie _path(@movie)
   end
+  
+
+  
+
  
   private
     def review_params
