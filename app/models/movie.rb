@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+	acts_as_votable
 	
 	has_many :views
     has_many :reviews,dependent: :destroy
