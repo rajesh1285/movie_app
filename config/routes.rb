@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   #root 'home#index'
   resources :home
   resources :movies do
-
             member do
               put "like", to:    "movies#upvote"
               put "dislike", to: "movies#downvote"

@@ -3,12 +3,19 @@ class MoviesController < ApplicationController
   
 
   def index
-    if params[:search]
+    search=params[:search]    
+    if search
+       capital_search = search.capitalize
+       downcase_search = search.downcase
+       upcase_search = search.upcase
+       title_search = search.titleize
      @movies = Movie.search(params[:search])
      @ratings = Movie.search(params[:search])
 
+
      else
       @movies =Movie.all
+
       @movies = Movie.all.order('count DESC').limit(4)
       @ratings = Movie.all.order('rating DESC').limit(4)
    end
