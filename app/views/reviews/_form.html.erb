@@ -1,14 +1,15 @@
 <%= form_for([@movie, @movie.reviews.build]) do |f| %>
+  <div class="col-md-9 ">
   
-  <div>
     <h1><%= f.label :Review %>(<%=@movie.reviews.count%>)</h1><br>
-    <i class="fa fa-user" aria-hidden="true"></i>
+   
+  
+
     
     <%= f.text_area :body %>
-  </div>
 
 
-   <div>
+   
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

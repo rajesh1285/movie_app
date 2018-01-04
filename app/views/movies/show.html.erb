@@ -1,7 +1,9 @@
 <div class="container" style="padding-top: 0px;">
-
+      
 			  <h1>New movies</h1>
+
 			       <%= render 'partials/navbar'%>
+			       <div class="row">
 				 <div class="col-md-6">
 			
 				    <img src="<%= @movie.image_url%>">
@@ -16,85 +18,89 @@
 					  </h3>
 				 
 					<h3>
-					  <strong>Plot:</strong>
-					  <%= @movie.plot %>
-					</h3>
+					  <strong>Plot:</strong></h3>
+					  <h4><%= @movie.plot %></h4>
+					
 					<h3>
-					  <strong>cast:</strong>
-					  <%= @movie.cast %>
-					</h3>
+					  <strong>cast:</strong></h3>
+					  <h4><%= @movie.cast %></h4>
+					
 					<h3>
-					  <strong>gener:</strong>
-					  <%= @movie.genr %>
-					</h3>
+					  <strong>gener:</strong></h3>
+					 <h4> <%= @movie.genr %></h4>
+					
                       <h3>
-					  <strong>year:</strong>
-					  <%= @movie.year %>
-					</h3>
+					  <strong>year:</strong></h3>
+					  <h4><%= @movie.year %></h4>
+					
 
-					<h3>
-					  <strong>Rating:</strong>
-					  <%= @movie.rating %>
-					</h3>
+					
 			</div>
 			     <div class="col-md-3">
 			     <%= image_tag 'rating.png' ,class: "rating-show-image"%><h4 class= "rating-show"></h4>
 			    <h3>Rating: <%= @movie.rating %>/10</h3>	
-
+             </div>
+        </div>
 
                 <div class="col-md-12">
 				    <div>
 				        <a href="<%= @movie.website%>" class="btn btn-primary web-show" style="float: right;" target="_blank">Website</a>
+
 				    </div>
+
 				 </div>
-           </div>
 
-        </div>
+           
 
-        <br>
-        <br>
+
+      
         
-	    <div class="container">
+	    
 	        	
-              	<div class="col-md-6">
-	              	<div class="container" style="width: 1139px;">
-	              		<div class="col-md-4">
+              	<div class="col-md-6 reviews">
 	              	
-		              		<div class="row back color" >
+	              		
+					<%if @movie.reviews.present? %>
+	              	       
+		              		<div class="row back-color">
+		              		
 
-			              	 <%= render @movie.reviews.limit(4) %>
+			              	   <%= render @movie.reviews.limit(4) %>
 			              		
 								  
 								  <!-- Trigger the modal with a button -->
-								  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="float: right;" >more reviews</button>
+									  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="float: right;" >more reviews</button>
+	                    
 
-								  <!-- Modal -->
-								  <div class="modal fade" id="myModal" role="dialog">
-								    <div class="modal-dialog">
-								    
-								      <!-- Modal content-->
-								      <div class="modal-content">
-								        <div class="modal-header">
-								          <button type="button" class="close" data-dismiss="modal">&times;</button>
-								          <h4 class="modal-title">Reviews</h4>
-								        </div>
-								        <div class="modal-body">
-								          <p><%=render @movie.reviews%></p>
-								        </div>
-								        <div class="modal-footer">
-								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								        </div>
-								      </div>
-								      
-								    </div>
+									  <!-- Modal -->
+									  <div class="modal fade" id="myModal" role="dialog">
+									    <div class="modal-dialog">
+									    
+									      <!-- Modal content-->
+									      <div class="modal-content">
+									        <div class="modal-header">
+									          <button type="button" class="close" data-dismiss="modal">&times;</button>
+									          <h4 class="modal-title">Reviews</h4>
+									        </div>
+									        <div class="modal-body">
+									          <p><%=render @movie.reviews%></p>
+									        </div>
+									        <div class="modal-footer">
+									          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									        </div>
+									      </div>
+									      
+									    </div>
 								  </div>
+								  
 							 
 			              	    </div>
 		          		</div>
-		          	</div>
-	           
-	          	</div>
-         
+		          		<%else%>
+		          		<div class="clearfix"></div>
+		          		
+
+                <%end%>
             <div class="col-md-6">
 				<div class="panel panel-default">
 							<div class="panel-heading">
@@ -104,51 +110,56 @@
 							</div>
 						<div class="panel-body table-responsive">
 							  <table class="table ">
-							    <thead>
-							      <tr>
-							        <th>
-							          #
-							        </th>
-							        <th>
-							          Name
-							        </th>
-							        <th>
-							          Genre
-							        </th>
-							      </tr>
-							    </thead>
-							    <% @genre_same.each do |genre|%>
+									    <thead>
+									      <tr>
+									        <th>
+									          #
+									        </th>
+									        <th>
+									          Name
+									        </th>
+									        <th>
+									          Genre
+									        </th>
+									      </tr>
+									    </thead>
+									    <% @genre_same.each do |genre|%>
 
-							    <tbody  data-spy="scroll"> 
-							    	<tr>
-							    		<td><%=genre.id%></td>
-							    	
-							    	
-							    	
-							    		<td><%=link_to genre.title, movie_path(genre) %></td>
-							    	
-							    	
-							    		<td><%=genre.genr%></td>
-							    	</tr>
+										    <tbody  data-spy="scroll"> 
+										    	<tr>
+										    		<td><%=genre.id%></td>
+										    	
+										    	
+										    	
+										    		<td><%=link_to genre.title, movie_path(genre) %></td>
+										    	
+										    	
+										    		<td><%=genre.genr%></td>
+										    	</tr>
 
-							    </tbody>
-								<%end%>							
+										    </tbody>
+										<%end%>							
 									</table>
 							</div>
-				</div>
+				    </div>
         	</div>
+        	<div class="col-md-3">
+        		<%= image_tag "user1.png" %>
+        	</div>
+	        	             <div class="col-md-9 ">
+				             	<%= render 'reviews/form'%>
+				             </div>
+		          	</div>
+	           
+	          	</div>
+         
         </div>
 
-		           <div class="col-md-12">
-			           	 <div class="col-md-6">
-			             	<%= render 'reviews/form'%>
-			             </div>
+		           
+			           	 
 		           </div>
 		   
-	        
-        <br>
-        <br>
-        <br>
+	    
 
 
 	               <div class="container">

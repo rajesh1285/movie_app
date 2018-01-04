@@ -29,9 +29,7 @@
   
             </li>
             <% if user_signed_in?  %>
-               <% if notice %>
-                <p class="alert alert-success alert-dismissable"><%= notice %></p>
-               <% end %>
+               
            
             <i class="fa fa-user" aria-hidden="true"></i>
             <%= current_user.email %>
@@ -47,26 +45,20 @@
                
                   <%if user_signed_in?%>
                   <li>
-              <%= link_to "SignOut",destroy_user_session_path,method: :delete%>
+                <%= link_to "SignOut",destroy_user_session_path,method: :delete%>
                 <%= link_to "Profile",edit_user_registration_path%>
-              <% if alert %>
-                <p class="alert alert-danger alert-dismissable"><%= alert %></p>
-              <% end %>
+              
             </li>
 
             <%else%>
              <li>
                   
                   <%= link_to('signup',new_user_registration_path)  %><i class="fa fa-user" aria-hidden="true"></i>
-                  <% if alert %>
-                    <p class="alert alert-success alert-dismissable"><%= alert %></p>
-                   <% end %>
+                  
                 </li>
                   <li>
                     <%= link_to('login',new_user_session_path)  %><i class="fa fa-user" aria-hidden="true"></i>
-                    <% if alert %>
-                    <p class="alert alert-success alert-dismissable"><%= alert %></p>
-                   <% end %>
+                    
                   </li>
 
                 <%end%>
