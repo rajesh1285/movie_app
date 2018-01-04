@@ -9,9 +9,8 @@ class MoviesController < ApplicationController
        downcase_search = search.downcase
        upcase_search = search.upcase
        title_search = search.titleize
-     @movies = Movie.search(params[:search])
-     @ratings = Movie.search(params[:search])
-
+     @movies = Movie.where("title like? OR title like? OR title like? OR title like?","#{capital_search}%","#{downcase_search}%","#{upcase_search}%","#{title_search}%").order('rating ASC')
+     @ratings = Movie.where("title like? OR title like? OR title like? OR title like?","#{capital_search}%","#{downcase_search}%","#{upcase_search}%","#{title_search}%").order('rating ASC')
 
      else
       @movies =Movie.all
