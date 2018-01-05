@@ -23,6 +23,7 @@ ActiveAdmin.register Movie do
 	    column :genr
 	    column :plot
 	    column :rating
+	    column :year
 	    actions
 	  end
 
