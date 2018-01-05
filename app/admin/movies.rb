@@ -12,7 +12,7 @@ ActiveAdmin.register Movie do
 #   permitted
 # end
 
-      permit_params :title,:image,:genre,:plot,:rating,:web,:year,:cast,:view
+      permit_params :title,:image,:genr,:plot,:rating,:website,:year,:cast
       decorate_with MovieDecorator
 
 	  index do
@@ -27,7 +27,7 @@ ActiveAdmin.register Movie do
 	  end
 
 	  filter :title
-	  filter :genre
+	  filter :genr
 
      
 

@@ -1,7 +1,6 @@
 class MoviesController < ApplicationController
    before_action :authenticate_admin_user!,only: [:create]
-   before_action :authenticate_user!,only: [:upvote,:downvote]
-  
+  before_action :authenticate_admin_user!,only: [:upvote,:downvote]
 
   def index
     search=params[:search]    
@@ -29,10 +28,10 @@ class MoviesController < ApplicationController
 
  def create
 
-    if params[:view] = "automatic"
+    if params[:view] ==  "automatic"
 
       @mv = OtherServieceCall.new.api_call(params[:movie][:title])
-      if @mv = true
+      if @mv == true
         redirect_to "#{Rails.application.secrets.url}/admin/movies",notice: "movie Successfully Saved"
       else
         redirect_to new_admin_movie_path(view: params[:view]),alert: "Movie Not Found Please verify it."

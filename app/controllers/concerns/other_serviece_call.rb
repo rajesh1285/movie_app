@@ -1,12 +1,15 @@
 class OtherServieceCall
    
    def api_call(title)
+    
     @title = title.split(' ').join('_')
     uri = URI("http://www.omdbapi.com/?t=#{@title}&apikey=c45185be")
     a = Net::HTTP.get(uri)
-  
+   
     b= JSON.parse(a)
+
     if b["Response"] == "True"
+    
       title = b["Title"]
       year = b["Year"]
       image = b["Poster"]
@@ -19,6 +22,7 @@ class OtherServieceCall
       end
       web = b["Website"]
       cast = b["Actors"]
+     
       return movie_create(title,year,image,genre,plot,rating,web,cast)
     else
       return false
@@ -26,7 +30,8 @@ class OtherServieceCall
   end
   private
   def movie_create(title,year,image,genr,plot,rating,website,cast)
-    @m = Movie.new
+    @m = Movie.new  
+    
     @m.title = title
     @m.year = year
     @m.remote_image_url = image
@@ -35,6 +40,7 @@ class OtherServieceCall
     @m.rating = rating
     @m.website = website
     @m.cast = cast
+  
     if @m.save
       return true
     else
