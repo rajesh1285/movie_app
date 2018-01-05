@@ -19,5 +19,8 @@ Rails.application.routes.draw do
   	resources :reviews
   end
   root 'movies#index'
+  match '/status', to: 'errors#new', constraints: {status: /\d{3}/},via: :all
+  
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
 end

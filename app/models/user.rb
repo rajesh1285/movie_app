@@ -5,7 +5,7 @@ class User < ApplicationRecord
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:confirmable	,:lockable,:timeoutable
    has_many :reviews,dependent: :destroy
-   has_many :movies,dependent: :destroy
+   has_many :movies
    validates_presence_of :name
 
 
