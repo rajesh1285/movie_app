@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
    before_action :authenticate_admin_user!,only: [:create]
-  before_action :authenticate_user!,only: [:upvote,:downvote]
+   before_action :authenticate_user!,only: [:upvote,:downvote]
+   before_action :set_movie, only: [:show, :edit, :update, :destroy,:downvote,:upvote]
 
   def index
     search=params[:search]    
@@ -59,7 +60,7 @@ class MoviesController < ApplicationController
 
 
   def show
-    @movie = Movie.find(params[:id])
+    
     View.create(movie_id: @movie.id)
     @genre_same= Movie.where(:genr=> @movie.genr)
     @view = params[:view]  
@@ -75,7 +76,7 @@ class MoviesController < ApplicationController
 
   
   def update
-    @movie = Movie.find(params[:id])
+   
  
     if @movie.update(movie_params)
      redirect_to @movie
@@ -86,23 +87,28 @@ class MoviesController < ApplicationController
   
   
   def destroy
-    @movie = Movie.find(params[:id])
+    
     @movie.destroy
    
     redirect_to movies_path
   end
  
   def upvote
-    @movie = Movie.find(params[:id])
+    
     @movie.upvote_by current_user
      redirect_back(fallback_location: root_path)
   end
    def downvote
-    @movie = Movie.find(params[:id])
+    
     @movie.downvote_from current_user
      redirect_back(fallback_location: root_path)
   end
   private 
+
+    def set_movie
+     @movie = Movie.find(params[:id])
+    end
+
    
     def movie_params
        params.require(:movie).permit(:title,:plot,:genr,:rating,:cast,:image,:year,:website)

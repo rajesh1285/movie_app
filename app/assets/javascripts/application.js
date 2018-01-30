@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require Chart.min
 //= require_tree .
 
 
@@ -30,3 +31,4 @@
     document.getElementById('qty').value = new_qty;
     return new_qty;
 }
+

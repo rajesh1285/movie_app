@@ -2,10 +2,10 @@
 
 
 
+ <%= form_tag movies_path, :method => 'get',class: "navbar-form navbar-left" do %>
+<div class="form-group">
+     <%= text_field_tag :search, params[:search],class:"form-control",placeholder: "Find Movies" %>
+   </div>
+     <%= submit_tag "Search", :name => nil,class: "btn btn-default" %>
+ <% end %> 
 
-<%= form_tag movies_path, :method => 'get',class: "navbar-form navbar-left" do %>
-  <div class="form-group">
-    <%= text_field_tag :search, params[:search],class:"form-control",placeholder: "Find Movies" %>
-  </div>
-    <%= submit_tag "Search", :name => nil,class: "btn btn-default" %>
-<% end %>

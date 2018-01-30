@@ -19,28 +19,15 @@
                         <% move_title = "unknown Album" %>
                         <% else %>
                         <% move_title = t.title %>
-                        <% end %>
-                        
-              
-              
-
-                  <h3><%= move_title%></h3>
-          
-           
+                        <% end %>  
+                  <h3><%= move_title%></h3>           
             <%= link_to (image_tag t.image_url),movie_path(t), class: "img-responsive" %>
-      
-             
-
            </div>
           <%end%>
           </div>
         </div>          
-         
-         
- 
             <div id="menu1" class="tab-pane fade <%= check_rating(@abc)%>">
-
-              <h3>Top rated</h3>
+           <h3>Top rated</h3>
               <div class="row">
               <%@rating.each do |movie|%>
                  <div class="col-md-3 col-sm-3 ">
@@ -49,10 +36,7 @@
                         <% else %>
                         <% move_title = movie.title %>
                         <% end %>
-                        
-              
-              
-
+        
                   <h3><%= move_title%></h3>
                             
               
@@ -66,3 +50,5 @@
      </div>
        <%=render "partials/footer"%>
 </div>
+
+

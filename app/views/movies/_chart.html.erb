@@ -1,0 +1,65 @@
+    <!-- 
+   
+    <canvas id="myChart" ></canvas>
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["<%@movies.each do |t| %><%=t.title%><%end%>"],
+                 
+                datasets: [{
+                    label: 'Ratings',
+                    data: ["<%@movies.each do |r| %><%=r.rating%><%end%>"],
+                   
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+
+                       
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>  -->
+    
+    
+    <canvas id="bar-chart" ></canvas>
+            <script>
+
+            <% names =  Array.new %>
+            <% vii = Array.new %>
+            <% @movies.order('count desc').each do |m|%>
+            <% names.push(m.title) %>
+            <% vii.push(m.rating) %>
+            <% end %>
+            new Chart(document.getElementById("bar-chart"), {
+                type: 'bar',
+                data: {
+                  labels:<%= names.inspect.html_safe %>,
+                  datasets: [{
+                    label: "Ratings",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#000f"],
+                    data:<%= vii.inspect.html_safe %>
+                  }]
+                },
+                     options: {
+                       scales: {
+                          yAxes: [{
+                             ticks: {
+                        beginAtZero:true
+                                  }
+                               }]
+                            }
+                         }
+
+                      });
+            </script>
+    
+

@@ -1,64 +1,62 @@
-    
-
-<div id="index_page">
-     <div class="container" style="padding-top: 0px;">
-
-        <%=render  "partials/header"%>
-        <%= render "partials/navbar"%>
-        <%= render 'partials/notification'%>
-        <%=render  "home/index"%>
-             <h1>Top viewed movies</h1>
-        <div class="row">
-            <% @movies.each do |movie| %>
-             
-                <div class="col-md-3 col-sm-3 ">
-                        <% if movie.title.blank?  %>
-                        <% move_title = "unknown Album" %>
-                        <% else %>
-                        <% move_title = movie.title %>
-                        <% end %>
-                        <h3><%= move_title %></h3>
-                        <% if movie.image.blank?  %>
-                        <% move_image = "blankimage.jpg" %>
-                        <% else %>
-                        <% move_image = movie.image_url %>
-                        <% end %>
+    <div id="index_page">
+      
+  <div class="container" style="padding-top: 0px;">
+    <%= render  "partials/header" %>
+    <%= render "partials/navbar" %>
+    <%= render 'partials/notification' %>
+    <%= render  "home/index" %>
+    <h1>Top viewed movies</h1>
+    <div class="row">
+      <% @movies.each do |movie| %>
+        <div class="col-md-3 col-sm-3">
+          <% if movie.title.blank? %>
+            <% move_title = "unknown Album" %>
+          <% else %>
+            <% move_title = movie.title %>
+          <% end %>
+          <h3>
+            <%= move_title %>
+          </h3>
+          <% if movie.image.blank? %>
+            <% move_image = "blankimage.jpg" %>
+          <% else %>
+            <% move_image = movie.image_url %>
+          <% end %>
+          <%= link_to (image_tag move_image),movie_path(movie), class: "img-responsive" %>
+          <br/>
+          <div class="from-group">
+            <%= link_to 'Readmore', movie_path(movie),class: "btn btn-primary" %>
+            <div class="btn-group">
+              <%= link_to like_movie_path(movie), method: :put, class: "btn btn-primary btn-sm" do %>
+                <i aria-hidden="true" class="fa fa-thumbs-up"></i>
+                Like
+           
+              <% end %>
+              <%= link_to dislike_movie_path(movie), method: :put, class: "btn btn-danger btn-sm" do %>
+                <i aria-hidden="true" class="fa fa-thumbs-down"></i>
+                Dislike
                 
-                    <%= link_to (image_tag move_image),movie_path(movie), class: "img-responsive" %>
-                    <br>
-                     <div class="from-group">
-                             <%= link_to 'Readmore', movie_path(movie),class: "btn btn-primary" %>
-                            
-                             <div class="btn-group">
-                                  <%= link_to like_movie_path(movie), method: :put, class: "btn btn-primary btn-sm" do %>
-                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                Like    
-                                <%= movie.get_likes.size %>
-                              <% end %>
-                              <%= link_to dislike_movie_path(movie), method: :put, class: "btn btn-danger btn-sm" do %>
-                                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                               Dislike
-                                <%= movie.get_dislikes.size %>
-                              <% end %>
-                            </div>
-                       </div>
-                </div>
-                  <%end%>
-               
-            
-               
-         </div> 
-         <div style="text-align: right" > 
-            <%=link_to "Browse more>>" , movies_detail_movies_path(view: "byview") %>
-                
-            </div>  
-         <%=render "toprated"%>
-         <div style="text-align: right" >
-          <%=link_to "Browse more>>" , movies_detail_movies_path(view: "byrating") %>
-         </div>
-         
-         <%=render "partials/footer"%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
+    <div style="text-align: right">
+      <%= link_to "Browse more>>" , movies_detail_movies_path(view: "byview") %>
+    </div>
+    <%= render "toprated" %>
+    <div style="text-align: right">
+      <%= link_to "Browse more>>" , movies_detail_movies_path(view: "byrating") %>
+    </div>
+    <%= render  "chart" %>
+    <%= render "partials/footer" %>
+  </div>
 </div>
 
+
+
+
+
    
+
