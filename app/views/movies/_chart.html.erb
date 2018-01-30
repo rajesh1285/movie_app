@@ -35,7 +35,7 @@
 
             <% names =  Array.new %>
             <% vii = Array.new %>
-            <% @movies.order('count desc').each do |m|%>
+            <% @ratings.limit(3).each do |m|%>
             <% names.push(m.title) %>
             <% vii.push(m.rating) %>
             <% end %>
@@ -47,6 +47,7 @@
                     label: "Ratings",
                     backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#000f"],
                     data:<%= vii.inspect.html_safe %>
+                    
                   }]
                 },
                      options: {
