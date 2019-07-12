@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20180105143237) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.integer "year"
-    t.string "website"
     t.integer "count"
+    t.string "website"
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,8 +63,6 @@ ActiveRecord::Schema.define(version: 20180105143237) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.integer "like"
-    t.integer "dislike"
     t.index ["movie_id"], name: "index_reviews_on_movie_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
